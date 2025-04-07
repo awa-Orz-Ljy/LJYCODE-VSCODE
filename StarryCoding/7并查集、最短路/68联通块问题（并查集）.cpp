@@ -13,15 +13,17 @@ bool iscon(int x,int y){return root(x) == root(y);}
 
 void solve(){
 	int n,m;cin>>n>>m;
+	
 	for(int i = 1;i <= n;i ++)pre[i] = i;//初始化
-	for(int i = 1;i <= m;i ++){
+	for(int i = 1;i <= m;i ++){//初始化
 		int u,v;cin>>u>>v;
 		merge(u,v);
 	}
+
 	for(int i = 1;i <= n;i ++) cnt[root(i)] ++;//记录的是每个根有多少个节点，即联通块的大小
 	vector<int> v;
 	for(int i = 1;i <= n;i ++){
-		if(cnt[i]) v.push_back(cnt[i]);//把存在节点的联通块的大小存入v
+		if(cnt[i]) v.push_back(cnt[i]);//把 存在 节点的联通块的大小存入v
 	}
 	sort(begin(v),end(v));
 	for(auto &i : v)cout<<i<<' ';

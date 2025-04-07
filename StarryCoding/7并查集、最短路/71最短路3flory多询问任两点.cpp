@@ -7,7 +7,7 @@ const ll inf = 2e18;//要更大一些
 ll d[N][N],n, m, q;//q次询问
 
 //0x3f是4.5e18的大小，inf取4e18
-void solve()
+void floyd()
 {
 	cin>>n>>m>>q;
 	memset(d,0x3f,sizeof d);//对字节操作
@@ -37,6 +37,6 @@ int main()
 {
    ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
    int t = 1;
-   while(t --)solve();
+   while(t --)floyd();
    return 0;
 }

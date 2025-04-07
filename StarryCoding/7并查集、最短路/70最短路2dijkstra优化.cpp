@@ -22,7 +22,7 @@ ll d[N];
 void dijkstra(int st){
    //1初始化d
    for(int i = 1;i <= n; ++ i) d[i] = inf;
-   //2优先队列，设置一个起点st
+   //2优先队列，bitset<N> vis，以及设置一个起点st并入队
    bitset<N> vis;
    priority_queue<Edge> pq;
    d[st] = 0;
@@ -30,14 +30,15 @@ void dijkstra(int st){
    //3更新d,队列非空就一直找
    while(!pq.empty()){
    	int x = pq.top().x;
-   	pq.pop();
-   	if(vis[x])continue;
-   	vis[x] = true;//核心，拿来记录拓展点
+      pq.pop();
+      if (vis[x]) // 核心，拿来记录拓展点
+         continue; 
+      vis[x] = true;
    	//4更新最优距离
    	for(const auto &t : g[x])
    	{
    		ll w = t.w, y = t.x;
-   		if(d[x] + w < d[y])
+   		if(d[x] + w < d[y])//最开始同一个出点,y只是不同名字的遍历对象
    		{
    			d[y] = d[x] + w;
    			pq.push({y, d[y]});
