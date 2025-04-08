@@ -11,17 +11,17 @@ vector<int> X;
 
 int bin(int x)
 {
-	return lower_bound(X.begin(),X.end(),x) - X.begin() +1;
+	return lower_bound(X.begin(),X.end(),x) - X.begin() +1;//二分找位置
 }
 
-int lowbit(int x){return x & -x;}
+int lowbit(int x){return x & -x;}//相互与
 
-void update(int k,int x)//上
+void update(int k,int x)//向上遍历
 {
 	for(int i = k;i <= X.size(); i += lowbit(i)) t[i] +=x;
 }
 
-int getsum(int k)//下
+int getsum(int k)//向下遍历
 {
 	int res = 0;
 	for(int i = k;i > 0;i-= lowbit(i)) res += t[i];
