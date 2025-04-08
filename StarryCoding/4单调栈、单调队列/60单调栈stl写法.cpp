@@ -6,9 +6,7 @@ const int N = 2e5 + 9;
 
 int a[N],l[N],stk[N],top;
 //stl的方法
-//单调栈用来存储下标！
 //top默认为0，此时栈为空的
-//我的评价是要学会利用多家资源来学习，不然根本学不通透
 
 void solve(){
 	int n;cin>>n;

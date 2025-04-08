@@ -8,12 +8,12 @@ ll a[N];
 int main() {
     ll n, m; cin >> n >> m;
     for (ll i = 1; i <= n; i++) cin >> a[i];
-    sort(a + 1,a + n + 1);
+    sort(a + 1,a + n + 1);//输入并且排序
 
     ll ans = 0,l = 1, r = n;
-        while (l + 1 != r) {
-            if (a[r] + a[l] > m){//从大的数找会更快找到
-            	ans += r - l;
+        while (l < r) {
+            if (a[r] + a[l] > m){//从大的数找会更快找到，因此r--
+            	ans += r - l;//这里求二元组的对数反而不需要mid
             	r --;
             }
             else l ++;//反之，则移动l

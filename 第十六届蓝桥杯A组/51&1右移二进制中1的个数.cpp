@@ -9,7 +9,7 @@ int f(int x)
 	int res = 0;
 	while(x)
 	{
-		if(x & 1)res ++;
+		if(x & 1) res ++;//这个也可以判断奇偶性
 		x>>=1;
 	}
 	return res;

@@ -7,7 +7,7 @@ const int N = 1e5 + 9;
 void solve()
 {
 	int q;cin>>q;
-	priority_queue<ll, vector<ll>, greater<ll> > pq;//小根堆，要多写vector和greater<ll>但是不用写成greater<ll>()
+	priority_queue<ll> pq;
 	
 	ll sum = 0;
 	while(q --)
