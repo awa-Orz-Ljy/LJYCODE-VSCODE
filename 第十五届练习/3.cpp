@@ -5,9 +5,9 @@ map<int, vector<int>> m1, m2;
 int n, m, a[N], b[N], ans, u, v;
 void dfs(int x, int y, int count)
 {
-    if (a[x] != b[y])
+    if (a[x] != b[y])//公共前缀
         return;
-    ans = max(ans, count + 1);
+    ans = max(ans, count + 1);//xy父节点，ij子节点，count深度
     for (int i = 0; i < m1[x].size(); i++)
         for (int j = 0; j < m2[y].size(); j++)
         {
@@ -23,12 +23,12 @@ int main()
         cin >> a[i];
     for (int i = 1; i <= m; i++)
         cin >> b[i];
-    for (int i = 1; i <= n - 1; i++)
+    for (int i = 1; i <= n - 1; i++)//根节点-1为边的个数n-1
     {
         cin >> u >> v;
         m1[u].push_back(v);
     }
-    for (int i = 1; i <= m - 1; i++)
+    for (int i = 1; i <= m - 1; i++)//同理
     {
         cin >> u >> v;
         m2[u].push_back(v);

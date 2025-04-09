@@ -1,10 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
+
 struct Solider
 {
     ll p, c;
-} soldiers[1000005];
+}a[1000005];
 
 bool compare(const Solider &a, const Solider &b)
 {
@@ -13,36 +14,29 @@ bool compare(const Solider &a, const Solider &b)
 
 int main()
 {
-    ll n, S;
+    int n;
+    long long S;
     cin >> n >> S;
+    for (int i = 1; i <= n; i++)
+        cin >> a[i].p >> a[i].c;
+    sort(a + 1, a + 1 + n, compare);
 
-    ll total = 0;
-    for (ll i = 1; i <= n; i++)
+    long long sum = 0;
+    int loc = 0;
+    for (int i = n; i >= 1; i--)
     {
-        cin >> soldiers[i].p >> soldiers[i].c;
-
-        total += soldiers[i].p;
-    }
-
-    sort(soldiers + 1, soldiers + 1 + n, compare);
-
-    int tm = 0;
-    ll res = 0;
-    for (ll i = 1; i <= n; i++)
-    {
-        if (total > S)
+        sum += a[i].p;
+        if (sum >= S)
         {
-            res += S * (soldiers[i].c - tm);
-            tm += (soldiers[i].c - tm);
-            total -= soldiers[i].p;
-        }
-        else
-        {
-            res += soldiers[i].p * (soldiers[i].c - tm);
+            loc = i;
+            break;
         }
     }
 
-    cout << res << endl;
+    long long ans = a[loc].c * S;
+    for (int i = loc + 1; i <= n; i++)
+        ans += (long long)(a[i].c - a[loc].c) * a[i].p;
+    cout << ans;
 
     return 0;
 }
