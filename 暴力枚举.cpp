@@ -1,33 +1,46 @@
-#include <bits/stdc++.h>
-using namespace std;
-using ll = long long;
-const int N = 100000000;
-ll cnt;
-void check(){
-    for (int i = 1; i <= N; i++)
+#include <iostream>
+#include <vector>
+
+bool isLuckyNumber(int num)
+{
+    std::vector<int> digits;
+    while (num > 0)
     {
-        string s = to_string(i);
-        
-        
-        if(s.length() % 2 != 0) continue;
-        int mid = s.length() / 2;
-        int st = 0, end = s.length() - 1;
-        int stsum = 0, edsum = 0;
-        for (int i = 0; i < mid; i++)
-        {
-            stsum += s[i] - '0';
-        }
-        for (int j = mid; j < s.length(); j++)
-        {
-            edsum += s[j] - '0';
-        }
-        if (stsum == edsum) cnt ++;
+        digits.push_back(num % 10);
+        num /= 10;
     }
+    int n = digits.size();
+    if (n % 2 != 0)
+    {
+        return false; // 数字位数为奇数，跳过
+    }
+    int mid = n / 2;
+    int leftSum = 0, rightSum = 0;
+    for (int i = 0; i < mid; ++i)
+    {
+        leftSum += digits[i];
+        rightSum += digits[mid + i];
+    }
+    return leftSum == rightSum;
 }
 
-int main(){
-    check();
-    cout << cnt;
+int countLuckyNumbers(int limit)
+{
+    int count = 0;
+    for (int num = 1; num <= limit; ++num)
+    {
+        if (isLuckyNumber(num))
+        {
+            ++count;
+        }
+    }
+    return count;
+}
+
+int main()
+{
+    int limit = 100000000;
+    int result = countLuckyNumbers(limit);
+    std::cout << "从1到" << limit << "之间共有 " << result << " 个幸运数字。" << std::endl;
     return 0;
 }
-
