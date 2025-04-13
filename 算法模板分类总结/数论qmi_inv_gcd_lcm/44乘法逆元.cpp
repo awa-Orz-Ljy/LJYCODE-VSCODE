@@ -8,7 +8,7 @@ ll qmi(ll a, ll b)
    ll res = 1;
    while (b)
    {
-   	if (b & 1) res = res * a % p;
+   	if (b & 1) res = res * a % p;//对结果累乘，仅奇数累乘
    	a = a * a % p;
    	b >>= 1;
    }

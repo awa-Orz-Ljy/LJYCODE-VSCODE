@@ -5,7 +5,7 @@ using ll = long long;
 const int N = 2e5+9;
 ll a[N],l[N],r[N];
 
-int stk[N],top;
+
 
 void solve()
 {
@@ -29,8 +29,10 @@ void solve()
 		if(i >= k)cout<< a[dq.front()] <<' ';
 	}	
 	cout<<'\n';
+
 	dq = deque<int>();//清空
-		//求最小
+
+	//求最小
 	for(int i = 1;i <= n;++ i)
 	{
 		//以i为右端点，大小为k的区间，[i-k+1,i]
@@ -38,7 +40,7 @@ void solve()
 		//队列头的合法性
 		while(dq.size() && dq.front() <= i-k)dq.pop_front();
 		//队尾的优越性
-		while(dq.size() && a[dq.back()] >= a[i])dq.pop_back();//越小越入栈
+		while(dq.size() && a[dq.back()] >= a[i])dq.pop_back();//大的出栈，越小越入栈
 		
 		dq.push_back(i);
 		

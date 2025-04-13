@@ -27,3 +27,12 @@ int main()
 	}
 	return 0;
 }
+
+// int f(int x){
+// 	int res = 0;
+// 	while(x){
+// 		if(x & 1)  res ++;
+// 		x >>= 1;
+// 	}
+// 	return res;
+// }

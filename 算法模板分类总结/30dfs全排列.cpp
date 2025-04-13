@@ -11,7 +11,7 @@ void dfs(int dep)
 	//此为搜索结束的条件，dep在下面会增加
 	if(dep == n + 1)
 	{
-		for(int i = 1;i <= n; ++ i)cout << a[i] << " \n"[i == n];
+		for(int i = 1;i <= n; ++ i) cout << a[i] << " \n"[i == n];
 		return;
 	}
 	//搜索
@@ -21,7 +21,7 @@ void dfs(int dep)
 		//做标记
 		vis[i] = true;
 		//将i放入当前排列的第dep个位置
-		a[dep] = i;
+		a[dep] = i; 
 		//继续向下搜索
 		dfs(dep + 1);
 		//恢复
@@ -37,3 +37,14 @@ int main()
    dfs(1);//从1开始
    return 0;
 }
+//遍历过的点放进来并且继续搜索并且恢复
+//for(int i = 1;i <= n;i ++){
+//	if(vis[i])conitnue;
+//	vis[i] = true;
+//	a[dep] = i;
+//	dfs(dep + 1)	
+//	a[dep] = 0; 
+//	vis[i] = false;
+// 	
+//
+//}

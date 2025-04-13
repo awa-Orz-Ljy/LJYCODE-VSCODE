@@ -9,6 +9,7 @@ void solve()
 {
 	int n,q;cin>>n>>q;
 	for(int i=1;i<=n;i++)cin>>a[i];
+	
 	while(q--)
 	{
 		int x;cin>>x;

@@ -17,11 +17,11 @@ void solve(){
 	for(int i = 1;i<=n;i++) 
 	{
 		
-		while(!stk.empty() && stk.top() >= a[i])
-			stk.pop(); // 不符合条件
+		while(!stk.empty() && stk.top() >= a[i])//非空+不符合条件
+			stk.pop(); // 不符合条件,求小的数
 		
 		if(stk.empty())
-			l[i] = -1;		  // pop完，可能全空或者有符合条件的，就把答案放到l数组
+			l[i] = -1;		  // pop完，可能全空或者有符合条件的，就把答案放到l数组，这里是没有就复制-1
 		else
 			l[i] = stk.top(); // 说明top是符合条件的小于a[i]
 

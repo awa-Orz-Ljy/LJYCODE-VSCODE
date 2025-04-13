@@ -17,3 +17,10 @@ int main(){
    cout<<dp[m]<<'\n';
    return 0;
 }
+/*
+cin>>s>>w>>v
+while(s --){
+    for(int j = m;j >= v;j --) dp[j] = max(dp[j],dp[j - v] + w);
+}
+cout<<dp[m]<<'\n;
+*/

@@ -22,3 +22,11 @@ int main(){
 	solve();
 	return 0;
 }
+/*
+for(int i = 1;i <= n;i ++)cin>>v[i]>>w[i];
+for(int i = 1;i <= N;i ++){
+	for(int j = V;j <= v[i];j --){
+		dp[j] = max(dp[j],dp[j - v[i]] + w[i]);
+	}
+}
+*/

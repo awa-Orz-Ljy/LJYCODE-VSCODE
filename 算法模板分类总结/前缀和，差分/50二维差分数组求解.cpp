@@ -16,7 +16,7 @@ int main(){
 	for(int i = 1;i <= n;i ++){
 		for(int j = 1;j <= m;j ++){
 			cin>>a[i][j];
-			diff[i][j] = a[i - 1][j - 1] + a[i][j] - a[i - 1][j] - a[i][j - 1];//输入并且构建差分数组
+			diff[i][j] = a[i - 1][j - 1] - a[i - 1][j] - a[i][j - 1] + a[i][j]; // 输入并且构建差分数组
 		}
 	}
 	while(q--){

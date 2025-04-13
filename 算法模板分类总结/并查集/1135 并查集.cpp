@@ -42,3 +42,8 @@ int main(){
         solve();
     return 0;
 }
+//root(int x){
+//}
+//pre[x] = (pre[x] == x? x : root(pre[x]));
+//pre[root(x)] = pre[root(y)]
+//root(x) == root(y);
